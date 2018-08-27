@@ -53,6 +53,10 @@ def sign_up():
         # sẽ cho redirect vào trang chủ luôn
         return "Bạn đã đk thành công"
 
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
+
 if __name__ == '__main__':
   app.run(debug=True)
  
