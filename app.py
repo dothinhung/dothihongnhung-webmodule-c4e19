@@ -25,7 +25,7 @@ def login():
         users = User.objects(uname=uname, password=password)
 
         if not users:
-            return render_template('login_err.html')
+            return "Sai usename or password"
         else:
             session['logged_in'] = True
             session['user_id'] = str(users[0].id)
@@ -56,6 +56,28 @@ def sign_up():
 @app.route('/blog')
 def blog():
     return render_template('blog.html')
+
+@app.route('/bmi', methods=["GET", "POST"])
+def bmi():
+    if request.method == "GET":
+        return render_template('check.html')
+    elif request.method == "POST":
+        form = request.form
+        weight = form['weight']
+        height = form['height']
+
+        height = int(height) / 100
+        bmi = int(weight) / (height ** 2)
+
+        if bmi < 18.5:
+            return render_template('underweight.html') 
+        elif 18.5 <= bmi < 25:
+            return render_template('normal.html')
+        elif 25 <= bmi < 30:
+            return render_template('overweight.html')
+        elif bmi > 30:
+            return render_template('obese.html') 
+
 
 if __name__ == '__main__':
   app.run(debug=True)
