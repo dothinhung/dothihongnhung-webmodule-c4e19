@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Check BMI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/css/style.css" />
     <script src="main.js"></script>
     {%include 'meta-data.html'%}
 </head>
 <body>
-    {%include 'homepage/navigation.html'%}<br><br><br>
+    {%include 'homepage/navigation.html'%}
     <div>
         <h3 class="header" style="text-align:center; font-size: 40px; color:#3cb371">Thông tin sức khỏe</h3><br><br>
         <p class="text-center font-lobster" style="font-size:30px; text-align:center;">Body Mass Index
@@ -30,19 +30,26 @@
             <input type="text" name="height" placeholder=" (cm)" class="mx-5" style="border-radius:10px;">
         </div>
    
-    <div class="form-group">
+        <div class="form-group">
             <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="col-sm-2">
                         <input type="submit" value="Tính BMI" class="btn btn-primary btn-lg btn-block login-button">
                     </div>
-
-                    <div class="col-sm-2">
-                        <a href="{{url_for('bmi')}}" type="button" id="button" class="btn btn-danger btn-lg btn-block login-button" >Làm lại</a>
-                    </div>
                 </div>
             </div>
         </div>
-        </form>
+    </form>
+
+        <!-- Mức độ -->
+        <div class="h-700px d-flex flex-column align-items-center justify-content-center">
+            <!-- <p class="text-center font-lobster" style="font-size:45px">"Những thói quen tốt cho sức khỏe và <br> cân bằng chỉ số cơ thể BMI"</p> -->
+            <div class="w-75 h-240px d-flex flex-row justify-content-around align-items-center">
+                <img src="../static/image/gầy.png" >
+                <img src="../static/image/chuan.png" >
+                <img src="../static/image/hơi mập.png">
+                <img src="../static/image/béo quá.png">
+            </div>
+            
 </body>
 </html>

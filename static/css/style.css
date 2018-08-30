@@ -41,7 +41,7 @@
 	transition: .4s ease-in-out;
 }
 
-.exercises:hover img{
+.exercises:hover image{
     -webkit-transform: scale(1.1);
 	transform: scale(1.1);
 }

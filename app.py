@@ -12,7 +12,7 @@ mlab.connect()
 def index():
     return render_template('index.html')
 
-
+#################### LOGIN #######################
 @app.route('/login', methods=["GET", "POST"])
 def login():
     if request.method == "GET":
@@ -29,8 +29,10 @@ def login():
         else:
             session['logged_in'] = True
             session['user_id'] = str(users[0].id)
-            return "Vào trang cá nhân"
+            return render_template('individual.html')
 
+
+#################### SIGN-UP #########################
 @app.route('/sign-up', methods=["GET", "POST"])
 def sign_up():
     if request.method == "GET":
@@ -53,10 +55,13 @@ def sign_up():
         # sẽ cho redirect vào trang chủ luôn
         return "Bạn đã đk thành công"
 
+######################## BLOG ###########################
 @app.route('/blog')
 def blog():
     return render_template('blog.html')
 
+
+######################### BMI ########################
 @app.route('/bmi', methods=["GET", "POST"])
 def bmi():
     if request.method == "GET":
@@ -77,6 +82,12 @@ def bmi():
             return render_template('overweight.html')
         elif bmi > 30:
             return render_template('obese.html') 
+
+############################ LOG-OUT #####################
+@app.route('/logout')
+def log_out():
+    del session['logged_in']
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
